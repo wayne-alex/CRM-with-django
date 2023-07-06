@@ -6,7 +6,7 @@ SECRET_KEY = 'django-insecure-n7szd$ms50jv_^jr82*@k3vm4uxdp0#fgfpn9fz5q5xr(vst%a
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', 'now.sh', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -48,14 +48,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dcrm.wsgi.application'
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'captain',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'captain',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'U1YfhKafwXLFZdpnLDto',
+        'HOST': 'containers-us-west-77.railway.app',
+        'PORT': '6612',
     }
 }
 
