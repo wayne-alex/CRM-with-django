@@ -1,8 +1,39 @@
 {% extends 'base.html'%}
 {% block content %}
-<div class="col-md-6 offset-md-3">
+
+
   {% if user.is_authenticated %}
-  <h1>Hello world</h1>
+  <h1>Records</h1>
+
+  <table class="table table-success table-striped">
+     <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">City</th>
+    </tr>
+  </thead>
+    <tbody>
+    <tr>
+
+  {% if records %}
+  {% for record in records %}
+    <td><a href = "{% url 'record' record.id %}">{{record.id}}</a></td>
+     <td>{{record.first_name}}
+      {{ record.second_nam }}</td>
+     <td> {{record.email}}</td>
+     <td> {{record.phone}}</td>
+     <td> {{record.city}}</td>
+       </tr>
+    <br/>
+  {% endfor %}
+  {% endif %}
+
+    </tbody>
+
+</table>
 
   {% else %}
     <h1>Login</h1>
