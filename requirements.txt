@@ -4,7 +4,7 @@ mysql-connector==2.2.9
 mysql==0.0.3
 mysqlclient==2.2.0
 pip==23.1.2
-setuptools==67.8.0
+setuptools==68.0.0
 sqlparse==0.4.4
 typing-extensions==4.7.1
 tzdata==2023.3
