@@ -38,7 +38,7 @@
   {% else %}
     <h1>Login</h1>
   <br/>
-    <form method="post" action="{% url 'home' %}">
+    <form method="post" action="{% url 'index' %}">
         {% csrf_token %}
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Username</label>

@@ -9,7 +9,7 @@ from django.views.decorators.csrf import csrf_protect
 @csrf_protect
 def my_view(request):
     # Your view logic
-    return render(request, 'home.html')
+    return render(request, 'index.html')
 
 
 def home(request):
@@ -21,18 +21,18 @@ def home(request):
         if user is not None:
             login(request, user)
             messages.success(request, "You have been logged in")
-            return redirect('home')
+            return redirect('index')
         else:
             messages.success(request, "username or password incorrect.try again ")
-            return redirect('home')
+            return redirect('index')
     else:
-        return render(request, 'home.html', {'records': records})
+        return render(request, 'index.html', {'records': records})
 
 
 def logout_user(request):
     logout(request)
     messages.success(request, "You have been logged out")
-    return redirect('home')
+    return redirect('index')
 
 
 def register_user(request):
@@ -46,7 +46,7 @@ def register_user(request):
             user = authenticate(username=username, password=password)
             login(request, user)
             messages.success(request, "You Have Successfully Registered! Welcome!")
-            return redirect('home')
+            return redirect('index')
     else:
         form = SignUpForm()
         return render(request, 'register.html', {'form': form})
@@ -60,7 +60,7 @@ def record_user(request, pk):
         return render(request, 'record.html', {'customer_record': customer_record})
     else:
         messages.success(request, "Error! Log in to access this site!")
-        return redirect('home')
+        return redirect('index')
 
 
 def delete_user(request, pk):
@@ -68,10 +68,10 @@ def delete_user(request, pk):
         delete_record = Record.objects.get(id=pk)
         delete_record.delete()
         messages.success(request, "Record deleted successfully")
-        return redirect('home')
+        return redirect('index')
     else:
         messages.success(request, "You must be logged in to perform this action!")
-        return redirect('home')
+        return redirect('index')
 
 
 def add_record(request):
@@ -85,7 +85,7 @@ def add_record(request):
         return render(request, 'add_record.html', {'form': form})
     else:
         messages.success(request, "You Must Be Logged In...")
-        return redirect('home')
+        return redirect('index')
 
 
 def update_record(request, pk):
@@ -95,8 +95,8 @@ def update_record(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, "Record Has Been Updated!")
-            return redirect('home')
+            return redirect('index')
         return render(request, 'update_record.html', {'form': form})
     else:
         messages.success(request, "You Must Be Logged In...")
-        return redirect('home')
+        return redirect('index')
