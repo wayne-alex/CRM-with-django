@@ -62,14 +62,13 @@ WSGI_APPLICATION = 'dcrm.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'wayne9914',
-        'HOST': 'database-1.ckiai8lfd6sn.eu-north-1.rds.amazonaws.com',
-        'PORT': '5432'
+        'PASSWORD': 'U1YfhKafwXLFZdpnLDto',
+        'HOST': 'containers-us-west-77.railway.app',
+        'PORT': '6612',
     }
 }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
